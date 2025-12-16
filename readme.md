@@ -8,6 +8,18 @@ Este proyecto prioriza la claridad conceptual sobre el rendimiento real y fue de
 
 En la versión actual, los algoritmos no presentan diferencias visibles en el resultado final al ordenar un arreglo (más allá de sus características técnicas teóricas).
 Sin embargo, cada algoritmo está implementado de forma independiente, ya que el proyecto está pensado para evolucionar en futuras versiones, incorporando diferencias visuales y métricas prácticas reales.
+Este proyecto utiliza JavaScript con ES Modules (`import / export`).
+
+Por este motivo **no funciona abriendo el archivo `index.html` directamente** (doble click),
+ya que los navegadores bloquean los módulos cuando se ejecutan desde el sistema de archivos.
+
+### Formas correctas de ejecutarlo:
+
+- Usando **Live Server** en Visual Studio Code
+- O accediendo a la versión publicada en **GitHub Pages**
+
+Esto no es un error del proyecto, sino una característica del uso de módulos en JavaScript moderno.
+
 
 ## Funcionalidades
 
