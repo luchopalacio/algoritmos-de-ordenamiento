@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="./img/favicon.ico">
+    <title>Arrays</title>
+</head>
+
+<body>
+    
+    <h1 id="tituloPrincipal">Algoritmos de Ordenamiento</h1>
+
+    <p class="subtitulo">Visualización interactiva de algoritmos de ordenamiento y su comportamiento.</p>
+    
+    <section id="introduccion" class="seccion">
+
+        <h2>Introducción</h2>
+
+        <p>Antes de empezar, podemos preguntarnos, ¿qué es <strong>ordenar un <span class="link-modal" data-modal="arregloModal">arreglo</span>?</strong></p>
+
+        <p>
+            Ordenar un arreglo es el proceso de reorganizar sus elementos, que pueden ser números, textos, carácteres, etc. (veremos el caso más intuitivo: números)
+            para que queden en una secuencia lógica deseada, ya sea de forma ascendente o descendente, utilizando <strong>algoritmos de ordenamiento</strong> específicos 
+            para lograrlo.</p>
+        <p> 
+            Los algoritmos de ordenamiento son el conjunto de instrucciones que toman un arreglo o lista como entrada y organizan los elementos en el orden requerido. Es decir, 
+            la "receta" que se va a seguir para poder ordenar el arreglo en cuestión.
+        </p>
+
+        <p>
+            Como te podrás imaginar, existen muchos algoritmos de ordenamiento, es decir, habrán varias recetas que podremos seguir, pero, a pesar de que todas cumplan la función
+            de ordenar, existen diferencias, como la simplicidad del algoritmo o ciertas cuestiones que estan "detrás de escena", más importantes de lo que parecen. Estas cuestiones 
+            están basadas en la <b>eficiencia</b> de cada una de ellos, o sea en el tiempo que tardan y en la cantidad de recursos que consumen, computacionalmente hablando. 
+            Acá trataremos los cinco algoritmos más conocidos (<em>Bubble Sort, Selection Sort, Insertion Sort, Quick Sort y Merge Sort</em>) y también marcaremos la diferencia entre 
+            cada uno de ellos.
+        </p>
+
+        <div class="ejemplo-ordenamiento">
+            <div class="array">
+                <div class="elemento">7</div>
+                <div class="elemento">5</div>
+                <div class="elemento">1</div>
+                <div class="elemento">9</div>
+            </div>
+
+            <span class="flecha-ejemplo">→</span>
+
+            <div class="array ordenado">
+                <div class="elemento">1</div>
+                <div class="elemento">5</div>
+                <div class="elemento">7</div>
+                <div class="elemento">9</div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section id = "clasificaciones" class = seccion>
+        <h2>Clasificación de un algoritmo de ordenamiento</h2>
+
+        <p>Los algoritmos de ordenamiento se pueden clasificar en función de los siguientes parámetros:</p>
+
+        <ul>
+            <li>
+                <strong>La cantidad de intercambios o inversiones requeridas:</strong> Se refiere al número de veces que el algoritmo cambia de posición los elementos para lograr 
+                el orden correcto. Por ejemplo, el método de selección es uno de los que necesita menos intercambios.
+            </li>
+            <li>
+                <strong>Número de comparaciones:</strong> Indica cuántas veces el algoritmo compara elementos entre sí durante el proceso de ordenamiento. 
+                Utilizando la notación <b><span class="link-modal" data-modal="bigOModal">Big-O</span></b>, muchos de los algoritmos más conocidos requieren al 
+                menos <em>O(n log n)</em> comparaciones en el mejor caso y hasta <em>O(n²)</em> en el peor caso.
+            </li>
+            <li>
+                <strong>Recursividad:</strong> Algunos algoritmos, como QuickSort, emplean llamadas recursivas para dividir y ordenar los datos. Otros, como el 
+                ordenamiento por selección o por inserción, funcionan de manera iterativa. También existen algoritmos como MergeSort que pueden implementarse de forma recursiva
+                o no recursiva.
+            </li>
+            <li>
+                <strong>Estabilidad:</strong> Los algoritmos de ordenamiento estables conservan el orden original de los elementos que poseen claves o valores iguales.
+                En cambio, los algoritmos inestables no garantizan que ese orden relativo se mantenga.
+            </li>
+            <li>
+                <strong>Uso de memoria adicional:</strong> Algunos algoritmos pueden ordenar los datos directamente sobre la estructura original, sin crear copias completas. 
+                Estos se conocen como algoritmos <b><span class="link-modal" data-modal="inPlaceModal">in-place</span></b> y requieren un espacio adicional constante O(1). Por otro lado, los algoritmos out-of-place necesitan memoria extra 
+                para almacenar estructuras auxiliares durante el ordenamiento.
+            </li>
+        </ul>
+
+    </section>
+
+    <div id ="descripciones">
+
+        <article class="descripcion" data-algoritmo="bubble">
+
+            <div class="header-algoritmo">
+
+                <span class="tituloDescripcion">Bubble Sort u ordenamiento Burbuja</span>
+
+                <span class="flecha">▼</span>
+
+            </div>
+
+            <div class="contenido-algoritmo">
+                <p>
+                    El ordenamiento de burbuja es un algoritmo de ordenamiento simple que consiste en intercambiar repetidamente los elementos adyacentes 
+                    si están en el orden incorrecto. Este algoritmo no es eficiente para grandes conjuntos de datos, ya que su complejidad temporal promedio 
+                    y en el peor de los casos es bastante alta.
+                </p>
+
+                <ol>
+                    <li>
+                        Ordena el arreglo mediante múltiples pasadas. Tras la primera, el valor máximo va al final (su posición correcta). 
+                        De igual manera, tras la segunda pasada, el segundo valor más grande va a la penúltima posición, y así sucesivamente.
+                    </li>
+                    <li>
+                        En cada pasada, procesa solo los que no se hayan movido a la posición correcta. Después de k pasadas, el k más grande debe haberse movido 
+                        a las últimas k posiciones.
+                    </li>
+                    <li>
+                        En un pase, consideramos los elementos restantes y comparamos todos los adyacentes. Intercambiamos si el elemento mayor está antes que el menor. 
+                        Si continuamos haciendo esto, obtenemos el elemento mayor (entre los restantes) en su posición correcta.
+                    </li>
+                </ol>
+
+                <div class="visualizacion-algoritmo">
+                    <!-- futuro: animacion -->
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article class="descripcion" data-algoritmo="selection">
+
+            <div class="header-algoritmo">
+
+                <span class="tituloDescripcion">Selection Sort u ordenamiento por Selección</span>
+
+                <span class="flecha">▼</span>
+                
+            </div>
+
+            <div class="contenido-algoritmo">
+                <p>
+                    El ordenamiento por selección es un algoritmo 
+                    de ordenamiento basado en la comparación. Ordena seleccionando repetidamente el elemento más pequeño o más grande (en este caso el mas pequeño) de la porción 
+                    sin ordenar e intercambiándolo con el primer elemento sin ordenar.
+                </p>
+
+                <ol>
+                    <li>Encuentra el elemento más pequeño e intercámbialo con el primero. Así, el elemento más pequeño queda en su posición correcta.</li>
+                    <li>Luego, encuentre el más pequeño entre los elementos restantes (o el segundo más pequeño) e intercámbielo con el segundo elemento.</li>
+                    <li>Seguimos haciendo esto hasta que consigamos mover todos los elementos a la posición correcta.</li>
+                </ol>
+
+                <div class="visualizacion-algoritmo">
+                    <!-- futuro: animacion -->
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article class="descripcion" data-algoritmo="insertion">
+
+            <div class="header-algoritmo">
+
+                <span class="tituloDescripcion">Insertion Sort u ordenamiento por Inserción</span>
+
+                <span class="flecha">▼</span>
+                
+            </div>
+
+            <div class="contenido-algoritmo">
+                <p>
+                    El ordenamiento por inserción es un algoritmo de ordenamiento simple que funciona insertando iterativamente cada elemento de una lista desordenada 
+                    en su posición correcta dentro de la sección ordenada de la lista. Es como ordenar cartas. Se dividen las cartas en dos grupos: las ordenadas y las 
+                    desordenadas. Luego, se elige una carta del grupo desordenado y se coloca en el lugar correcto dentro del grupo ordenado.
+                </p>
+
+                <ol>
+                    <li>Comience con el segundo elemento, ya que se supone que el primero está ordenado.</li>
+                    <li>Compare el segundo elemento con el primero; si este es menor, intercámbielos.</li>
+                    <li>Vaya al tercer elemento, compárelo con los dos primeros y colóquelo en su posición correcta.</li>
+                    <li>Repita hasta que todo el array esté ordenado.</li>
+                </ol>
+            
+                <div class="visualizacion-algoritmo">
+                    <!-- futuro: animacion -->
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article class="descripcion" data-algoritmo="quick">
+
+            <div class="header-algoritmo">
+
+                <span class="tituloDescripcion">Quick Sort u ordenamiento rápido</span>
+
+                <span class="flecha">▼</span>
+                
+            </div>
+
+            <div class="contenido-algoritmo">
+                <p>
+                    Se basa en el lema "Divide y Vencerás". Este algoritmo selecciona 
+                    un elemento como pivote y particiona el array dado en torno a dicho pivote, colocando cada elemento en su posición correcta dentro del array ordenado. Es importante
+                    entender recursividad para aplicar este algoritmo. El algoritmo consta principalmente de tres pasos:
+                </p>
+
+                <ol>
+                    <li>Elegir un pivote: Seleccionar un elemento del array como pivote. La elección del pivote puede variar (por ejemplo, primer elemento, último elemento, 
+                    elemento aleatorio o elemento medio).</li>
+                    <li>Particionar el array: Reorganizar el array en torno al pivote. Tras la partición, todos los elementos menores que el pivote estarán a su izquierda 
+                    y todos los mayores que el pivote estarán a su derecha.</li>
+                    <li>Llamada recursiva: Aplicar recursivamente el mismo proceso a los dos subarreglos particionados.</li>
+                    <p>Caso base: La recursión se detiene cuando solo queda un elemento en el subarreglo, ya que ya se ha ordenado un solo elemento. </p>
+                </ol>
+
+                <div class="visualizacion-algoritmo">
+                    <!-- futuro: animacion -->
+                </div>
+
+            </div>
+        </article>
+
+
+        <article class="descripcion" data-algoritmo="merge">
+
+            <div class="header-algoritmo">
+
+                <span class="tituloDescripcion">Merge Sort u ordenamiento por mezcla/fusión</span>
+
+                <span class="flecha">▼</span>
+                
+            </div>
+
+            <div class="contenido-algoritmo">
+                <p>
+                    Este un algoritmo de ordenamiento, conocido por su eficiencia y estabilidad, comparte ciertas características con el Quick Sort, ya que también sigue 
+                    el método de "Divide y Vencerás" y se utiliza recursividad. Funciona dividiendo recursivamente el arreglo en dos mitades, ordenándolas recursivamente 
+                    y finalmente fusionándolas para obtener el arreglo ordenado. Paso a paso de cómo funciona el Merge Sort:
+                </p>
+            
+                <ol>
+                    <li>Divide el array recursivamente en dos mitades hasta que ya no se pueda dividir (es decir, queda un array de un elemento)</li>
+                    <li>Cada sub-array se ordena individualmente mediante el algoritmo de ordenamiento por fusión.</li>
+                    <li>Los sub-arrays ordenados se vuelven a fusionar en el orden ordenado. El proceso continúa hasta que se hayan fusionado todos los elementos de 
+                    ambos sub-arrays.</li> 
+                </ol>
+            
+                <div class="visualizacion-algoritmo">
+                    <!-- futuro: animacion -->
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <section id="interaccion" class="seccion">
+
+            <h2>Probá los algoritmos</h2>
+
+            <p class="subtitulo-seccion">
+                Ingresá los valores de un arreglo y observá cómo se comporta cada algoritmo de ordenamiento.
+            </p>
+
+            <!-- Entrada del array -->
+            <div class="bloque-entrada">
+                <label for="inputArray">Elementos del arreglo: </label>
+                <input 
+                    type="text" 
+                    id="inputArray" 
+                    placeholder="Ej: 7, 3, 9, 1, 5"
+                >
+                <small>Separá los números con comas</small>
+            </div>
+
+            <!-- Selección de algoritmo -->
+            <div class="bloque-algoritmos">
+                <p class="label-algoritmos">Elegí un algoritmo</p>
+
+                <div class="botones-algoritmos">
+                    <button class="btn-algoritmo" data-algoritmo="bubble">Bubble</button>
+                    <button class="btn-algoritmo" data-algoritmo="selection">Selection</button>
+                    <button class="btn-algoritmo" data-algoritmo="insertion">Insertion</button>
+                    <button class="btn-algoritmo" data-algoritmo="quick">Quick</button>
+                    <button class="btn-algoritmo" data-algoritmo="merge">Merge</button>
+                </div>
+
+                <button class="btn-ordenar">Ordenar</button>
+            </div>
+
+            <!-- Resultados -->
+            <div class="bloque-resultados hidden" id="bloqueResultados">
+
+                <h3 id="resultado-texto">Resultado del ordenamiento</h3>
+
+                <div id="salidaResultado" class="salida-array">—</div>
+
+                <div class="info-tecnica">
+                    <h4 id="detalles-tecnicos">Detalles técnicos:</h4>
+                    <ul>
+                        <li><strong>Comparaciones:</strong> <span id="comparaciones">—</span></li>
+                        <li><strong>Intercambios:</strong> <span id="intercambios">—</span></li>
+                        <li><strong>Complejidad:</strong> <span id="complejidad">—</span></li>
+                        <li><strong>Estable:</strong> <span id="estable">—</span></li>
+                        <li><strong>In-place:</strong> <span id="inPlace">—</span></li>
+                    </ul>
+                </div>
+
+                <button id="btn-clear" class="btn-clear">Limpiar</button>
+            </div>
+
+
+        </section>
+
+    </div>
+
+    <div id="modal" class="modal hidden">
+    <div class="modal-contenido">
+        <span id="modal-cerrar">&times;</span>
+        <h3 id="modal-titulo"></h3>
+        <p id="modal-texto"></p>
+    </div>
+    </div>
+
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
